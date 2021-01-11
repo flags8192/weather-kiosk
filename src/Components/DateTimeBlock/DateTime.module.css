@@ -1,0 +1,31 @@
+.date_time {
+  display: flex;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "date-time__time" "date-time__date" "date-time__weekday";
+  grid-area: date-time;
+  align-self: stretch;
+  padding: 3rem 0 3rem;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px dotted;
+  background: #181a1d;
+}
+
+.date_time__time {
+  grid-area: date-time__time;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.date_time__date {
+  grid-area: date-time__date;
+  font-size: 3rem;
+}
+
+.date_time__weekday {
+  grid-area: date-time__weekday;
+  font-size: 2rem;
+}

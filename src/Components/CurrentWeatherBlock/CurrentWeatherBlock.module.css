@@ -1,0 +1,146 @@
+.current_weather {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    "current-weather__icon current-weather__icon current-weather__temperature current-weather__temperature"
+    "current-weather__description current-weather__description current-weather-feels-like__temperature current-weather-feels-like__temperature"
+    "weather_of-the-day weather_of-the-day weather_of-the-day weather_of-the-day";
+  grid-area: current-weather;
+  border: 1px dotted;
+  padding: 1rem 0 0;
+  align-items: center;
+  background: #181a1d;
+}
+
+.weather_of_the_day {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    "first-half-of-the-day first-half-of-the-day second-half-of-the-day second-half-of-the-day"
+    "first-half-of-the-day first-half-of-the-day second-half-of-the-day second-half-of-the-day"
+    "first-half-of-the-day first-half-of-the-day second-half-of-the-day second-half-of-the-day";
+  grid-area: weather_of-the-day;
+  /*border: 1px dotted;*/
+  /*padding: 1rem 0 0;*/
+  align-items: center;
+  background: #181a1d;
+}
+
+.current_weather img {
+  width: 56%;
+}
+
+.current_weather__icon {
+  grid-area: current-weather__icon;
+}
+
+.current_weather__temperature {
+  grid-area: current-weather__temperature;
+  font-size: 7.5rem;
+  font-weight: bold;
+}
+
+.current_weather__description {
+  grid-area: current-weather__description;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.current_weather_feels_like__temperature {
+  grid-area: current-weather-feels-like__temperature;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.first_half_of_the_day {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  grid-template-areas:
+    "first-half-of-the-day__icon first-half-of-the-day__name"
+    "first-half-of-the-day__icon first-half-of-the-day__temperature"
+    "first-half-of-the-day__description first-half-of-the-day__description";
+  grid-area: first-half-of-the-day;
+  border-top: 1px dotted;
+  /*margin: 0 -1px -1px -1px;*/
+}
+
+.first_half_of_the_day__name {
+  grid-area: first-half-of-the-day__name;
+  font-size: 1.3rem;
+  padding-top: 1rem;
+}
+
+.first_half_of_the_day__icon {
+  grid-area: first-half-of-the-day__icon;
+}
+
+.first_half_of_the_day__icon img {
+  width: 60%;
+}
+
+.first_half_of_the_day__temperature {
+  grid-area: first-half-of-the-day__temperature;
+  font-size: 3rem;
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  font-weight: bold;
+  /* text-align: center; */
+}
+
+.first_half_of_the_day__description {
+  grid-area: first-half-of-the-day__description;
+  font-size: 1.3rem;
+  text-align: center;
+  height: 42px;
+}
+
+.second_half_of_the_day {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  grid-template-areas:
+    "second-half-of-the-day__icon second-half-of-the-day__name"
+    "second-half-of-the-day__icon second-half-of-the-day__temperature"
+    "second-half-of-the-day__description second-half-of-the-day__description";
+  grid-area: second-half-of-the-day;
+  border-top: 1px dotted;
+  /*border-left: 1px dotted;*/
+  /*margin: 0px -1px -1px -1px;*/
+}
+
+.second_half_of_the_day__name {
+  grid-area: second-half-of-the-day__name;
+  font-size: 1.3rem;
+  padding-top: 1rem;
+}
+
+.second_half_of_the_day__icon {
+  grid-area: second-half-of-the-day__icon;
+}
+
+.second_half_of_the_day__icon img {
+  width: 60%;
+}
+
+.second_half_of_the_day__temperature {
+  grid-area: second-half-of-the-day__temperature;
+  font-size: 3rem;
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  font-weight: bold;
+  /* text-align: center; */
+}
+
+.second_half_of_the_day__description {
+  grid-area: second-half-of-the-day__description;
+  font-size: 1.3rem;
+  text-align: center;
+  height: 42px;
+}

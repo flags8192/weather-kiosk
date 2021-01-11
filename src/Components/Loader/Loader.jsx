@@ -1,0 +1,21 @@
+import React from 'react'
+import { DualRing } from 'react-awesome-spinners'
+
+export default class LoadingIndicator extends React.PureComponent {
+  render() {
+    return (
+      <div
+        style={{
+          width: '100vw',
+          height: '100vh',
+          display: 'flex',
+          color: 'white',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <DualRing color="#fff" sizeUnit="px" />
+      </div>
+    )
+  }
+}

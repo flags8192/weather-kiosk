@@ -1,0 +1,77 @@
+.current_description {
+  display: flex;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    "current-description";
+  grid-area: current-description;
+  align-self: stretch;
+  padding: 1rem 0 1rem 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px dotted;
+  background: #181a1d;
+}
+
+.sunchart_wrapper {
+  width: 100%;
+  max-width: 340px;
+  align-self: center;
+}
+
+.chart_sun_baseline {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.chart_sun_circle {
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 1% 2%;
+}
+
+.chart_sun_path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-dasharray: 35% 65%;
+}
+
+.chart_sun_path2 {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-dasharray: 1% 1%;
+}
+
+.sunchart_text {
+  fill: #fff;
+  stroke: none;
+  text-anchor: middle;
+  font-size: .7rem
+}
+
+.circles {
+  align-self: stretch
+}
+
+.circles > .circles_wrapper {
+  display: flex;
+  flex-direction: row;
+  Justify-content: space-around;
+  align-items: flex-start
+}
+
+.circles > .circles_wrapper > div {
+  flex: 1 1 auto
+}
+
+.circles_wrapper p {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+

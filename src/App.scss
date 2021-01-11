@@ -1,0 +1,965 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #000;
+  font-size: 16px;
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", "Segoe UI", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.blue {
+  color: rgb(41, 41, 255);
+  font-weight: bold;
+}
+
+.white {
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.stem {
+  width: 3px !important;
+}
+
+html, body, .grid-container {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.container {
+  height: 100vh;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1.4fr;
+  grid-template-rows: 1fr 0.2fr 1fr 1fr 0.1fr;
+  gap: 0;
+  grid-template-areas:
+    "date-time current-weather current-description"
+    "other-container other-container other-container"
+    "forecast forecast forecast"
+    "chart-container chart-container chart-container"
+    "site-info site-info site-info";
+  justify-items: stretch;
+  align-items: center;
+  text-align: center;
+}
+
+.chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+  grid-area: chart-container;
+  grid-template-areas:
+    "temperature-chart pressure-chart humidity-chart";
+  justify-items: stretch;
+  align-items: center;
+  text-align: center;
+}
+
+.other-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+  grid-area: other-container;
+  grid-template-areas:
+    "home-temperature basement-temperature heating-temperature";
+  justify-items: stretch;
+  align-items: center;
+  text-align: center;
+  border: 1px dotted;
+}
+
+.temperature-chart {
+  grid-area: temperature-chart;
+  border: 1px dotted;
+  margin-top: -10px;
+}
+
+.pressure-chart {
+  grid-area: pressure-chart;
+  border: 1px dotted;
+  margin-top: -10px;
+}
+
+.humidity-chart {
+  grid-area: humidity-chart;
+  border: 1px dotted;
+  margin-top: -10px;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+  grid-template-areas:
+    "forecast__day1 forecast__day2 forecast__day3 forecast__day4 forecast__day5 forecast__day6 forecast__day7";
+  grid-area: forecast;
+
+  & svg {
+    padding: 10px;
+  }
+}
+
+.forecast__day {
+  //height: 21rem;
+  padding: 5px;
+  font-size: 1.2rem;
+  border: 1px dotted;
+}
+
+.forecast__day1, .forecast__day2, .forecast__day3, .forecast__day4,
+.forecast__day5, .forecast__day6, .forecast__day7 {
+  background: #181a1d;
+}
+
+.forecast__day1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day1__date forecast__day1__date"
+    "forecast__day1__icon forecast__day1__temperature"
+    "forecast__day1__description forecast__day1__description"
+    "forecast__day1__dewpoint forecast__day1__dewpoint"
+    "forecast__day1__pressure forecast__day1__pressure"
+    "forecast__day1__humidity forecast__day1__humidity"
+    "forecast__day1__wind forecast__day1__wind"
+    "forecast__day1__rain forecast__day1__rain";
+  grid-area: forecast__day1;
+  //border: 1px dotted white;
+}
+
+.forecast__day1__temperature {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "forecast__day1__temperature-day"
+    "forecast__day1__temperature-night";
+  grid-area: forecast__day1__temperature;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  //border-bottom: 1px dotted white;
+}
+
+.forecast__day1__temperature-day, .forecast__day1__temperature-night,
+.forecast__day2__temperature-day, .forecast__day2__temperature-night,
+.forecast__day3__temperature-day, .forecast__day3__temperature-night,
+.forecast__day4__temperature-day, .forecast__day4__temperature-night,
+.forecast__day5__temperature-day, .forecast__day5__temperature-night,
+.forecast__day6__temperature-day, .forecast__day6__temperature-night,
+.forecast__day7__temperature-day, .forecast__day7__temperature-night {
+  font-weight: bold;
+}
+
+.forecast__day1__temperature-day, .forecast__day1__temperature-night,
+.forecast__day2__temperature-day, .forecast__day2__temperature-night,
+.forecast__day3__temperature-day, .forecast__day3__temperature-night,
+.forecast__day4__temperature-day, .forecast__day4__temperature-night,
+.forecast__day5__temperature-day, .forecast__day5__temperature-night,
+.forecast__day6__temperature-day, .forecast__day6__temperature-night,
+.forecast__day7__temperature-day, .forecast__day7__temperature-night {
+  font-size: 1.6rem;
+  justify-content: flex-start;
+
+  & svg {
+    color: white;
+    padding-right: 20px;
+  }
+}
+
+.forecast__day1__date {
+  grid-area: forecast__day1__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day1__icon {
+  grid-area: forecast__day1__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day1__temperature-day {
+  grid-area: forecast__day1__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day1__temperature-night {
+  grid-area: forecast__day1__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day1__description {
+  grid-area: forecast__day1__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day1__dewpoint {
+  grid-area: forecast__day1__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day1__pressure {
+  grid-area: forecast__day1__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day1__humidity {
+  grid-area: forecast__day1__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day1__wind {
+  grid-area: forecast__day1__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day1__rain {
+  grid-area: forecast__day1__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day2__date forecast__day2__date"
+    "forecast__day2__icon forecast__day2__temperature"
+    "forecast__day2__description forecast__day2__description"
+    "forecast__day2__dewpoint forecast__day2__dewpoint"
+    "forecast__day2__pressure forecast__day2__pressure"
+    "forecast__day2__humidity forecast__day2__humidity"
+    "forecast__day2__wind forecast__day2__wind"
+    "forecast__day2__rain forecast__day2__rain";
+  grid-area: forecast__day2;
+  //font-size: 1.5rem;
+  //border: 1px dotted white;
+}
+
+.forecast__day2__date {
+  grid-area: forecast__day2__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day2__icon {
+  grid-area: forecast__day2__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day2__temperature-day {
+  grid-area: forecast__day2__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day2__temperature-night {
+  grid-area: forecast__day2__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  // opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day2__description {
+  grid-area: forecast__day2__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day2__dewpoint {
+  grid-area: forecast__day2__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day2__pressure {
+  grid-area: forecast__day2__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day2__humidity {
+  grid-area: forecast__day2__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day2__wind {
+  grid-area: forecast__day2__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day2__rain {
+  grid-area: forecast__day2__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day3__date forecast__day3__date"
+    "forecast__day3__icon forecast__day3__temperature"
+    "forecast__day3__description forecast__day3__description"
+    "forecast__day3__dewpoint forecast__day3__dewpoint"
+    "forecast__day3__pressure forecast__day3__pressure"
+    "forecast__day3__humidity forecast__day3__humidity"
+    "forecast__day3__wind forecast__day3__wind"
+    "forecast__day3__rain forecast__day3__rain";
+  grid-area: forecast__day3;
+  //font-size: 1.5rem;
+  //border: 1px dotted white;
+}
+
+.forecast__day3__date {
+  grid-area: forecast__day3__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day3__icon {
+  grid-area: forecast__day3__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day3__temperature-day {
+  grid-area: forecast__day3__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day3__temperature-night {
+  grid-area: forecast__day3__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  // opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day3__description {
+  grid-area: forecast__day3__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day3__dewpoint {
+  grid-area: forecast__day3__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day3__pressure {
+  grid-area: forecast__day3__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day3__humidity {
+  grid-area: forecast__day3__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day3__wind {
+  grid-area: forecast__day3__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day3__rain {
+  grid-area: forecast__day3__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day4__date forecast__day4__date"
+    "forecast__day4__icon forecast__day4__temperature"
+    "forecast__day4__description forecast__day4__description"
+    "forecast__day4__dewpoint forecast__day4__dewpoint"
+    "forecast__day4__pressure forecast__day4__pressure"
+    "forecast__day4__humidity forecast__day4__humidity"
+    "forecast__day4__wind forecast__day4__wind"
+    "forecast__day4__rain forecast__day4__rain";
+  grid-area: forecast__day4;
+  //font-size: 1.5rem;
+  //border: 1px dotted white;
+}
+
+.forecast__day4__date {
+  grid-area: forecast__day4__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day4__icon {
+  grid-area: forecast__day4__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day4__temperature-day {
+  grid-area: forecast__day4__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day4__temperature-night {
+  grid-area: forecast__day4__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  // opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day4__description {
+  grid-area: forecast__day4__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day4__dewpoint {
+  grid-area: forecast__day4__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day4__pressure {
+  grid-area: forecast__day4__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day4__humidity {
+  grid-area: forecast__day4__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day4__wind {
+  grid-area: forecast__day4__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day4__rain {
+  grid-area: forecast__day4__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day5__date forecast__day5__date"
+    "forecast__day5__icon forecast__day5__temperature"
+    "forecast__day5__description forecast__day5__description"
+    "forecast__day5__dewpoint forecast__day5__dewpoint"
+    "forecast__day5__pressure forecast__day5__pressure"
+    "forecast__day5__humidity forecast__day5__humidity"
+    "forecast__day5__wind forecast__day5__wind"
+    "forecast__day5__rain forecast__day5__rain";
+  grid-area: forecast__day5;
+  //font-size: 1.5rem;
+  //border: 1px dotted white;
+}
+
+.forecast__day5__date {
+  grid-area: forecast__day5__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day5__icon {
+  grid-area: forecast__day5__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day5__temperature-day {
+  grid-area: forecast__day5__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day5__temperature-night {
+  grid-area: forecast__day5__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  // opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day5__description {
+  grid-area: forecast__day5__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day5__dewpoint {
+  grid-area: forecast__day5__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day5__pressure {
+  grid-area: forecast__day5__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day5__humidity {
+  grid-area: forecast__day5__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day5__wind {
+  grid-area: forecast__day5__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day5__rain {
+  grid-area: forecast__day5__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day6 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day6__date forecast__day6__date"
+    "forecast__day6__icon forecast__day6__temperature"
+    "forecast__day6__description forecast__day6__description"
+    "forecast__day6__dewpoint forecast__day6__dewpoint"
+    "forecast__day6__pressure forecast__day6__pressure"
+    "forecast__day6__humidity forecast__day6__humidity"
+    "forecast__day6__wind forecast__day6__wind"
+    "forecast__day6__rain forecast__day6__rain";
+  grid-area: forecast__day6;
+  //font-size: 1.5rem;
+  //border: 1px dotted white;
+}
+
+.forecast__day6__date {
+  grid-area: forecast__day6__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day6__icon {
+  grid-area: forecast__day6__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day6__temperature-day {
+  grid-area: forecast__day6__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day6__temperature-night {
+  grid-area: forecast__day6__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  // opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day6__description {
+  grid-area: forecast__day6__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day6__dewpoint {
+  grid-area: forecast__day6__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day6__pressure {
+  grid-area: forecast__day6__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day6__humidity {
+  grid-area: forecast__day6__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day6__wind {
+  grid-area: forecast__day6__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day6__rain {
+  grid-area: forecast__day6__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day7 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  //gap: 1px 1px;
+  grid-template-areas:
+    "forecast__day7__date forecast__day7__date"
+    "forecast__day7__icon forecast__day7__temperature"
+    "forecast__day7__description forecast__day7__description"
+    "forecast__day7__dewpoint forecast__day7__dewpoint"
+    "forecast__day7__pressure forecast__day7__pressure"
+    "forecast__day7__humidity forecast__day7__humidity"
+    "forecast__day7__wind forecast__day7__wind"
+    "forecast__day7__rain forecast__day7__rain";
+  grid-area: forecast__day7;
+  //font-size: 1.5rem;
+  //border: 1px dotted white;
+}
+
+.forecast__day7__date {
+  grid-area: forecast__day7__date;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted white;
+}
+
+.forecast__day7__icon {
+  grid-area: forecast__day7__icon;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  & img {
+    width: 80px;
+  }
+}
+
+.forecast__day7__temperature-day {
+  grid-area: forecast__day7__temperature-day;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  //padding-left: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day7__temperature-night {
+  grid-area: forecast__day7__temperature-night;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  // opacity: 0.6;
+  //padding-right: 30px;
+  //height: 1.5rem;
+}
+
+.forecast__day7__description {
+  grid-area: forecast__day7__description;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 42px;
+}
+
+.forecast__day7__dewpoint {
+  grid-area: forecast__day7__dewpoint;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day7__pressure {
+  grid-area: forecast__day7__pressure;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day7__humidity {
+  grid-area: forecast__day7__humidity;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day7__wind {
+  grid-area: forecast__day7__wind;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day7__rain {
+  grid-area: forecast__day7__rain;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.forecast__day1__description, .forecast__day2__description, .forecast__day3__description,
+.forecast__day4__description, .forecast__day5__description, .forecast__day6__description,
+.forecast__day7__description {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.home-temperature {
+  grid-area: home-temperature;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  //color: #ddd;
+  //border: 1px dotted;
+  padding: 10px;
+  //margin: 5px 0 5px 0;
+  background: #181a1d;
+}
+
+.basement-temperature {
+  grid-area: basement-temperature;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  //color: #ddd;
+  //border: 1px dotted;
+  padding: 10px;
+  //margin: 5px 0 5px 0;
+  background: #181a1d;
+}
+
+.heating-temperature {
+  grid-area: heating-temperature;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  //color: #ddd;
+  //border: 1px dotted;
+  padding: 10px;
+  //margin: 5px 0 5px 0;
+  background: #181a1d;
+}
+
+.site-info {
+  grid-area: site-info;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  //color: #aaaaaa;
+  border: 1px dotted;
+  padding: 5px;
+  text-align: center;
+  font-size: small;
+  background: #181a1d;
+}
+
+.site-info a {
+  text-decoration: none;
+  color: white;
+}
+
+@import 'media.scss';

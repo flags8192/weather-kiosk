@@ -1,0 +1,445 @@
+//@media only screen and (min-width: 1600px) {
+//  .current-weather {
+//    height: 260px;
+//  }
+//  .date-time__time {
+//    font-size: 110px;
+//  }
+//  .date-time__date {
+//    font-size: 50px;
+//  }
+//  .date-time__weekday {
+//    font-size: 50px;
+//  }
+//  .basement-temperature, .home-temperature, .heating-temperature {
+//    font-size: 18px;
+//  }
+//  .current-weather__temperature {
+//    font-size: 120px;
+//  }
+//  .current-weather__icon img {
+//    width: 116px;
+//  }
+//  .first-half-of-the-day__description, .second-half-of-the-day__description, .current-weather__description,
+//  .first-half-of-the-day__name, .second-half-of-the-day__name {
+//    font-size: 20px;
+//  }
+//  .first-half-of-the-day__temperature, .second-half-of-the-day__temperature {
+//    font-size: 45px;
+//  }
+//  .current-description {
+//    font-size: 26px;
+//  }
+//  .forecast__day1__temperature-day, .forecast__day1__temperature-night,
+//  .forecast__day2__temperature-day, .forecast__day2__temperature-night,
+//  .forecast__day3__temperature-day, .forecast__day3__temperature-night,
+//  .forecast__day4__temperature-day, .forecast__day4__temperature-night,
+//  .forecast__day5__temperature-day, .forecast__day5__temperature-night,
+//  .forecast__day6__temperature-day, .forecast__day6__temperature-night,
+//  .forecast__day7__temperature-day, .forecast__day7__temperature-night {
+//    font-size: 26px;
+//  }
+//  .forecast__day1__description, .forecast__day2__description,
+//  .forecast__day3__description, .forecast__day4__description,
+//  .forecast__day5__description, .forecast__day6__description,
+//  .forecast__day7__description {
+//    height: 54px;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    font-size: 1.4rem;
+//  }
+//  .site-info br {
+//    display: none;
+//  }
+//  .temperature-chart, .humidity-chart, .pressure-chart {
+//    margin-top: -5px;
+//  }
+//}
+//
+//@media only screen and (min-width: 768px) and (max-width: 979px) {
+//  /* STYLES GO HERE */
+//}
+//
+//@media only screen and (min-width: 481px) and (max-width: 767px) {
+//  /* STYLES GO HERE */
+//}
+//
+//@media only screen and (max-width: 480px) {
+//  .grid-container {
+//    display: grid;
+//    grid-template-columns: 1fr;
+//    grid-template-rows: 1fr 1fr 1fr 0.2fr 0.2fr 0.2fr 1fr 1fr 1fr 1fr 0.1fr;
+//    gap: 10px 10px;
+//    grid-template-areas:
+//        "date-time"
+//        "current-weather"
+//        "current-description"
+//        "home-temperature"
+//        "basement-temperature"
+//        "heating-temperature"
+//        "forecast"
+//        "temperature-chart"
+//        "pressure-chart"
+//        "humidity-chart"
+//        "site-info";
+//  }
+//  .forecast {
+//    display: grid;
+//    grid-template-columns: 1fr 1fr;
+//    grid-template-rows: 1fr 1fr 1fr;
+//    gap: 1px 10px;
+//    grid-template-areas:
+//        "forecast__day1 forecast__day2"
+//        "forecast__day3 forecast__day4"
+//        "forecast__day5 forecast__day6";
+//    grid-area: forecast;
+//
+//    & svg {
+//      width: 12px;
+//    }
+//  }
+//  .forecast__day7 {
+//    display: none;
+//  }
+//  .site-info {
+//    font-size: 10px;
+//  }
+//  .first-half-of-the-day__description, .second-half-of-the-day__description,
+//  .first-half-of-the-day__name, .second-half-of-the-day__name {
+//    line-height: 2rem;
+//  }
+//  .forecast__day1__date, .forecast__day2__date, .forecast__day3__date,
+//  .forecast__day4__date, .forecast__day5__date, .forecast__day6__date,
+//  .forecast__day7__date {
+//    line-height: 2rem;
+//  }
+//  .forecast__day1__description, .forecast__day2__description, .forecast__day3__description,
+//  .forecast__day4__description, .forecast__day5__description, .forecast__day6__description,
+//  .forecast__day7__description {
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//  }
+//  .forecast__day1__temperature-day, .forecast__day1__temperature-night,
+//  .forecast__day2__temperature-day, .forecast__day2__temperature-night,
+//  .forecast__day3__temperature-day, .forecast__day3__temperature-night,
+//  .forecast__day4__temperature-day, .forecast__day4__temperature-night,
+//  .forecast__day5__temperature-day, .forecast__day5__temperature-night,
+//  .forecast__day6__temperature-day, .forecast__day6__temperature-night,
+//  .forecast__day7__temperature-day, .forecast__day7__temperature-night {
+//    font-size: 2rem;
+//    line-height: 2rem;
+//  }
+//  .current-weather__description {
+//    padding-bottom: 5px;
+//  }
+//  .current-weather__temperature {
+//    padding-top: 12%;
+//  }
+//  .current-weather {
+//    //height: 220px;
+//  }
+//  .current-weather {
+//    display: grid;
+//    grid-template-columns: 1fr 1fr 1fr 1fr;
+//    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+//    gap: 1px 1px;
+//    grid-template-areas:
+//    "current-weather__icon current-weather__icon current-weather__temperature current-weather__temperature"
+//    "current-weather__description current-weather__description current-weather__temperature current-weather__temperature"
+//    "first-half-of-the-day first-half-of-the-day second-half-of-the-day second-half-of-the-day"
+//    "first-half-of-the-day first-half-of-the-day second-half-of-the-day second-half-of-the-day"
+//    "first-half-of-the-day first-half-of-the-day second-half-of-the-day second-half-of-the-day";
+//    grid-area: current-weather;
+//    border: 1px dotted;
+//  }
+//  .home-temperature, .basement-temperature, .heating-temperature {
+//    margin: 0;
+//  }
+//  .current-description__isnotlocal {
+//    margin-bottom: -30px;
+//  }
+//  .forecast__day {
+//    font-size: 1rem;
+//    margin-bottom: 10px;
+//  }
+//  .temperature-chart, .pressure-chart {
+//    margin-bottom: 10px;
+//  }
+//}
+
+///* Smartphones (portrait and landscape) ----------- */
+//@media only screen and (min-width: 321px) and (max-width: 480px) {
+//  .grid-container {
+//    display: grid;
+//    grid-template-columns: 1fr;
+//    grid-template-rows: 1fr 1fr 1fr 0.2fr 0.2fr 0.2fr 1fr 1fr 1fr 1fr 0.1fr;
+//    gap: 10px 10px;
+//    grid-template-areas:
+//      "date-time"
+//      "current-weather"
+//      "current-description"
+//      "home-temperature"
+//      "basement-temperature"
+//      "heating-temperature"
+//      "forecast"
+//      "temperature-chart"
+//      "pressure-chart"
+//      "humidity-chart"
+//      "site-info";
+//  }
+//
+//  .forecast {
+//    display: grid;
+//    grid-template-columns: 1fr 1fr;
+//    grid-template-rows: 1fr 1fr 1fr;
+//    gap: 1px 10px;
+//    grid-template-areas:
+//      "forecast__day1 forecast__day2"
+//      "forecast__day3 forecast__day4"
+//      "forecast__day5 forecast__day6";
+//    grid-area: forecast;
+//
+//    & svg {
+//      width: 12px;
+//    }
+//  }
+//  .forecast__day7 {
+//    display: none;
+//  }
+//  .site-info {
+//    font-size: 10px;
+//  }
+//  .first-half-of-the-day__description, .second-half-of-the-day__description {
+//    padding-bottom: 7px;
+//    height: 40px;
+//  }
+//  .forecast__day1__date, .forecast__day2__date, .forecast__day3__date,
+//  .forecast__day4__date, .forecast__day5__date, .forecast__day6__date,
+//  .forecast__day7__date {
+//    padding-bottom: 5px;
+//  }
+//  .forecast__day1__description, .forecast__day2__description, .forecast__day3__description,
+//  .forecast__day4__description, .forecast__day5__description, .forecast__day6__description,
+//  .forecast__day7__description {
+//    padding-bottom: 5px;
+//  }
+//  .current-description svg {
+//    width: 32px;
+//  }
+//  .current-weather__description {
+//    padding-bottom: 5px;
+//  }
+//  .current-weather__temperature {
+//    padding-top: 12%;
+//  }
+//  .current-weather {
+//    height: 220px;
+//  }
+//  .home-temperature, .basement-temperature, .heating-temperature {
+//    margin: 0;
+//  }
+//  .current-description__isnotlocal {
+//    margin-bottom: -30px;
+//  }
+//  .forecast__day {
+//    font-size: 16px;
+//  }
+//  .temperature-chart, .pressure-chart {
+//    margin-bottom: 10px;
+//  }
+//}
+//
+///* Smartphones (landscape) ----------- */
+//@media only screen and (min-width: 321px) {
+//  /* STYLES GO HERE */
+//}
+//
+///* Smartphones (portrait) ----------- */
+//@media only screen and (max-width: 320px) {
+//  .grid-container {
+//    display: grid;
+//    grid-template-columns: 1fr;
+//    grid-template-rows: 1fr 1fr 1fr 0.2fr 0.2fr 0.2fr 1fr 1fr 1fr 1fr 0.1fr;
+//    gap: 10px 10px;
+//    grid-template-areas:
+//      "date-time"
+//      "current-weather"
+//      "current-description"
+//      "home-temperature"
+//      "basement-temperature"
+//      "heating-temperature"
+//      "forecast"
+//      "temperature-chart"
+//      "pressure-chart"
+//      "humidity-chart"
+//      "site-info";
+//  }
+//
+//  .forecast {
+//    display: grid;
+//    grid-template-columns: 1fr 1fr;
+//    grid-template-rows: 1fr 1fr 1fr;
+//    gap: 1px 10px;
+//    grid-template-areas:
+//      "forecast__day1 forecast__day2"
+//      "forecast__day3 forecast__day4"
+//      "forecast__day5 forecast__day6";
+//    grid-area: forecast;
+//
+//    & svg {
+//      width: 12px;
+//    }
+//  }
+//  .forecast__day7 {
+//    display: none;
+//  }
+//  .site-info {
+//    font-size: 10px;
+//  }
+//  .first-half-of-the-day__description, .second-half-of-the-day__description {
+//    padding-bottom: 7px;
+//    height: 40px;
+//  }
+//  .forecast__day1__date, .forecast__day2__date, .forecast__day3__date,
+//  .forecast__day4__date, .forecast__day5__date, .forecast__day6__date,
+//  .forecast__day7__date {
+//    padding-bottom: 5px;
+//  }
+//  .forecast__day1__description, .forecast__day2__description, .forecast__day3__description,
+//  .forecast__day4__description, .forecast__day5__description, .forecast__day6__description,
+//  .forecast__day7__description {
+//    padding-bottom: 5px;
+//  }
+//  .current-description svg {
+//    width: 32px;
+//  }
+//  .current-weather__description {
+//    padding-bottom: 5px;
+//  }
+//  .current-weather__temperature {
+//    padding-top: 12%;
+//  }
+//  .current-weather {
+//    height: 220px;
+//  }
+//  .home-temperature, .basement-temperature, .heating-temperature {
+//    margin: 0;
+//  }
+//  .current-description__isnotlocal {
+//    margin-bottom: -30px;
+//  }
+//  .forecast__day {
+//    font-size: 16px;
+//  }
+//  .temperature-chart, .pressure-chart {
+//    margin-bottom: 10px;
+//  }
+//}
+//
+///* iPads (portrait and landscape) ----------- */
+//@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+//  /* STYLES GO HERE */
+//}
+//
+///* iPads (landscape) ----------- */
+//@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+//  /* STYLES GO HERE */
+//}
+//
+///* iPads (portrait) ----------- */
+//@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+//  /* STYLES GO HERE */
+//}
+//
+///* Desktops and laptops ----------- */
+//@media only screen and (min-width: 1224px) {
+//  .current-weather {
+//    height: 215px;
+//  }
+//}
+//
+///* 19,5 Desktops and laptops ----------- */
+//@media only screen and (min-width: 1600px) {
+//  .current-weather {
+//    height: 260px;
+//  }
+//  .date-time__time {
+//    font-size: 110px;
+//  }
+//  .date-time__date {
+//    font-size: 50px;
+//  }
+//  .date-time__weekday {
+//    font-size: 50px;
+//  }
+//  .basement-temperature, .home-temperature, .heating-temperature {
+//    font-size: 18px;
+//  }
+//  .current-weather__temperature {
+//    font-size: 120px;
+//  }
+//  .current-weather__icon img {
+//    width: 116px;
+//  }
+//  .first-half-of-the-day__description, .second-half-of-the-day__description, .current-weather__description,
+//  .first-half-of-the-day__name, .second-half-of-the-day__name {
+//    font-size: 20px;
+//  }
+//  .first-half-of-the-day__temperature, .second-half-of-the-day__temperature {
+//    font-size: 45px;
+//  }
+//  .current-description {
+//    font-size: 26px;
+//  }
+//  .forecast__day1__temperature-day, .forecast__day1__temperature-night,
+//  .forecast__day2__temperature-day, .forecast__day2__temperature-night,
+//  .forecast__day3__temperature-day, .forecast__day3__temperature-night,
+//  .forecast__day4__temperature-day, .forecast__day4__temperature-night,
+//  .forecast__day5__temperature-day, .forecast__day5__temperature-night,
+//  .forecast__day6__temperature-day, .forecast__day6__temperature-night,
+//  .forecast__day7__temperature-day, .forecast__day7__temperature-night {
+//    font-size: 26px;
+//  }
+//  .forecast__day1__description, .forecast__day2__description,
+//  .forecast__day3__description, .forecast__day4__description,
+//  .forecast__day5__description, .forecast__day6__description,
+//  .forecast__day7__description {
+//    height: 54px;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//  }
+//  .site-info {
+//    //display: none;
+//  }
+//
+//  .site-info br {
+//    display: none;
+//  }
+//
+//  .temperature-chart, .humidity-chart, .pressure-chart {
+//    margin-top: -5px;
+//  }
+//}
+//
+///* Large screens ----------- */
+//@media only screen and (min-width: 1824px) {
+//  /* STYLES GO HERE */
+//}
+//
+///* iPhone 5 (portrait &amp; landscape)----------- */
+//@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+//  /* STYLES GO HERE */
+//}
+//
+///* iPhone 5 (landscape)----------- */
+//@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+//  /* STYLES GO HERE */
+//}
+//
+///* iPhone 5 (portrait)----------- */
+//@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+//  /* STYLES GO HERE */
+//}
