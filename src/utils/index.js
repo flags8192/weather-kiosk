@@ -21,16 +21,14 @@ export const formatPressure = (str, outtype) => {
   const currentPressure = (parseFloat(str) / 1.333).toFixed(0)
 
   if (outtype === 'full') {
-    if (currentPressure > 760) return `${currentPressure} мм рт. ст. ${PressureDescriptions[0]}`
-    // TODO проверить
-    if (currentPressure === 760) return `${currentPressure} мм рт. ст. ${PressureDescriptions[1]}`
-    if (currentPressure < 760) return `${currentPressure} мм рт. ст. ${PressureDescriptions[2]}`
+    if (+currentPressure > 760) return `${currentPressure} мм рт. ст. ${PressureDescriptions[0]}`
+    if (+currentPressure === 760) return `${currentPressure} мм рт. ст. ${PressureDescriptions[1]}`
+    if (+currentPressure < 760) return `${currentPressure} мм рт. ст. ${PressureDescriptions[2]}`
   }
   if (outtype === 'desc') {
-    if (currentPressure > 760) return PressureDescriptions[0]
-    // TODO проверить
-    if (currentPressure === 760) return PressureDescriptions[1]
-    if (currentPressure < 760) return PressureDescriptions[2]
+    if (+currentPressure > 760) return PressureDescriptions[0]
+    if (+currentPressure === 760) return PressureDescriptions[1]
+    if (+currentPressure < 760) return PressureDescriptions[2]
   }
   if (outtype === 'brief') {
     return `${currentPressure} мм рт. ст. `
