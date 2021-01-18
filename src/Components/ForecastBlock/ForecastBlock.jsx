@@ -13,6 +13,7 @@ import Icons from '../../icons'
 import {
   calcWindDir, formatPressure, tempFormat, timestampToDate,
 } from '../../utils/index'
+import Tooltip from '../Tooltip/Tooltip'
 
 const ForecastBlock = () => {
   const { daily } = useSelector((state) => state.weather)
@@ -44,41 +45,53 @@ const ForecastBlock = () => {
                 <div
                   className={temp.day.toFixed(0) <= 0 ? `forecast__day${index + 1}__temperature-day blue` : `forecast__day${index + 1}__temperature-day red`}
                 >
-                  <Icon icon={dayIcon} />
+                  <Tooltip content="Днём" direction="top">
+                    <Icon icon={dayIcon} />
+                  </Tooltip>
                   {tempFormat(temp.day.toFixed(0))}
                 </div>
                 <div
                   className={temp.night.toFixed(0) <= 0 ? `forecast__day${index + 1}__temperature-night blue` : `forecast__day${index + 1}__temperature-night red`}
                 >
-                  <Icon icon={nightIcon} />
+                  <Tooltip content="Ночью" direction="top">
+                    <Icon icon={nightIcon} />
+                  </Tooltip>
                   {tempFormat(temp.night.toFixed(0))}
                 </div>
               </div>
               <div className={`forecast__day${index + 1}__description`}>{weather[0].description}</div>
               <div className={`forecast__day${index + 1}__dewpoint`}>
-                <Icon icon={dewpointIcon} />
+                <Tooltip content="Точка росы" direction="top">
+                  <Icon icon={dewpointIcon} />
+                </Tooltip>
                 {' '}
                 {/* eslint-disable-next-line camelcase */}
                 {dew_point}
               </div>
               <div className={`forecast__day${index + 1}__pressure`}>
-                <Icon icon={barometerIcon} />
+                <Tooltip content="Атмосферное давление" direction="top">
+                  <Icon icon={barometerIcon} />
+                </Tooltip>
                 {' '}
                 {`${formatPressure(pressure, 'brief')}`}
               </div>
               <div className={`forecast__day${index + 1}__humidity`}>
-                <Icon icon={humidityIcon} />
+                <Tooltip content="Относительная влажность" direction="top">
+                  <Icon icon={humidityIcon} />
+                </Tooltip>
                 {`${humidity}%`}
               </div>
               <div className={`forecast__day${index + 1}__wind`}>
-                <Icon icon={calcWindDir(wind_deg)} />
+                <Tooltip content="Направление и скорость ветра" direction="top">
+                  <Icon icon={calcWindDir(wind_deg)} />
+                </Tooltip>
                 {/* eslint-disable-next-line camelcase */}
                 {` ${wind_speed.toFixed(1)} м/с`}
               </div>
               <div className={`forecast__day${index + 1}__rain`}>
-                {rain ? <Icon icon={umbrellaIcon} /> : ''}
+                {rain ? <Tooltip content="Дождь" direction="top"><Icon icon={umbrellaIcon} /></Tooltip> : ''}
                 {rain ? `${rain.toFixed(1)} мм` : ''}
-                {snow ? <Icon icon={snowIcon} /> : ''}
+                {snow ? <Tooltip content="Снег" direction="top"><Icon icon={snowIcon} /></Tooltip> : ''}
                 {snow ? `${snow.toFixed(1)} мм` : ''}
               </div>
             </div>
@@ -107,41 +120,53 @@ const ForecastBlock = () => {
                 <div
                   className={temp.day.toFixed(0) <= 0 ? `forecast__day${index + 2}__temperature-day blue` : `forecast__day${index + 1}__temperature-day red`}
                 >
-                  <Icon icon={dayIcon} />
+                  <Tooltip content="Днём" direction="top">
+                    <Icon icon={dayIcon} />
+                  </Tooltip>
                   {tempFormat(temp.day.toFixed(0))}
                 </div>
                 <div
                   className={temp.night.toFixed(0) <= 0 ? `forecast__day${index + 2}__temperature-night blue` : `forecast__day${index + 1}__temperature-night red`}
                 >
-                  <Icon icon={nightIcon} />
+                  <Tooltip content="Ночью" direction="top">
+                    <Icon icon={nightIcon} />
+                  </Tooltip>
                   {tempFormat(temp.night.toFixed(0))}
                 </div>
               </div>
               <div className={`forecast__day${index + 2}__description`}>{weather[0].description}</div>
               <div className={`forecast__day${index + 2}__dewpoint`}>
-                <Icon icon={dewpointIcon} />
+                <Tooltip content="Точка росы" direction="top">
+                  <Icon icon={dewpointIcon} />
+                </Tooltip>
                 {' '}
                 {/* eslint-disable-next-line camelcase */}
                 {dew_point}
               </div>
               <div className={`forecast__day${index + 2}__pressure`}>
-                <Icon icon={barometerIcon} />
+                <Tooltip content="Атмосферное давление" direction="top">
+                  <Icon icon={barometerIcon} />
+                </Tooltip>
                 {' '}
                 {`${formatPressure(pressure, 'brief')}`}
               </div>
               <div className={`forecast__day${index + 2}__humidity`}>
-                <Icon icon={humidityIcon} />
+                <Tooltip content="Относительная влажность" direction="top">
+                  <Icon icon={humidityIcon} />
+                </Tooltip>
                 {`${humidity}%`}
               </div>
               <div className={`forecast__day${index + 2}__wind`}>
-                <Icon icon={calcWindDir(wind_deg)} />
+                <Tooltip content="Направление и скорость ветра" direction="top">
+                  <Icon icon={calcWindDir(wind_deg)} />
+                </Tooltip>
                 {/* eslint-disable-next-line camelcase */}
                 {` ${wind_speed.toFixed(1)} м/с`}
               </div>
               <div className={`forecast__day${index + 2}__rain`}>
-                {rain ? <Icon icon={umbrellaIcon} /> : ''}
+                {rain ? <Tooltip content="Дождь" direction="top"><Icon icon={umbrellaIcon} /></Tooltip> : ''}
                 {rain ? `${rain.toFixed(1)} мм` : ''}
-                {snow ? <Icon icon={snowIcon} /> : ''}
+                {snow ? <Tooltip content="Снег" direction="top"><Icon icon={snowIcon} /></Tooltip> : ''}
                 {snow ? `${snow.toFixed(1)} мм` : ''}
               </div>
             </div>
