@@ -59,7 +59,7 @@
 }
 /* CSS border triangles */
 .Tooltip-Tip.right::before {
-    left: calc(var(--tooltip-arrow-size) * -1,5);
+    left: calc(var(--tooltip-arrow-size) * -1.5);
     top: 50%;
     transform: translateX(0) translateY(-50%);
     border-right-color: var(--tooltip-background-color);
@@ -67,7 +67,7 @@
 
 /* Absolute positioning */
 .Tooltip-Tip.bottom {
-    bottom: calc(var(--tooltip-margin) * -1,5);
+    bottom: calc(var(--tooltip-margin) * -1.5);
 }
 /* CSS border triangles */
 .Tooltip-Tip.bottom::before {
