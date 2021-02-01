@@ -65,7 +65,6 @@ const ForecastBlock = () => {
                   <Icon icon={dewpointIcon} />
                 </Tooltip>
                 {' '}
-                {/* eslint-disable-next-line camelcase */}
                 {dew_point}
               </div>
               <div className={`forecast__day${index + 1}__pressure`}>
@@ -85,7 +84,6 @@ const ForecastBlock = () => {
                 <Tooltip content="Направление и скорость ветра" direction="top">
                   <Icon icon={calcWindDir(wind_deg)} />
                 </Tooltip>
-                {/* eslint-disable-next-line camelcase */}
                 {` ${wind_speed.toFixed(1)} м/с`}
               </div>
               <div className={`forecast__day${index + 1}__rain`}>
@@ -140,7 +138,6 @@ const ForecastBlock = () => {
                   <Icon icon={dewpointIcon} />
                 </Tooltip>
                 {' '}
-                {/* eslint-disable-next-line camelcase */}
                 {dew_point}
               </div>
               <div className={`forecast__day${index + 2}__pressure`}>
@@ -160,7 +157,6 @@ const ForecastBlock = () => {
                 <Tooltip content="Направление и скорость ветра" direction="top">
                   <Icon icon={calcWindDir(wind_deg)} />
                 </Tooltip>
-                {/* eslint-disable-next-line camelcase */}
                 {` ${wind_speed.toFixed(1)} м/с`}
               </div>
               <div className={`forecast__day${index + 2}__rain`}>
