@@ -41,11 +41,23 @@ html, body, .grid-container {
   height: 99vh;
   width: 99vw;
   margin: 0 auto;
-  //text-align: center;
 }
 
 .container {
   height: 100vh;
+}
+
+.card {
+  background: linear-gradient(
+          to bottom right,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.05)
+  );
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5), -1px -1px 2px #aaa,
+  1px 1px 2px #555;
+  margin: 10px 10px 0 10px;
+  padding: 1.5rem;
+  border-radius: 1rem;
 }
 
 .grid-container {
@@ -88,7 +100,7 @@ html, body, .grid-container {
   justify-items: stretch;
   align-items: center;
   text-align: center;
-  border: 1px dotted;
+  //border: 1px dotted;
 }
 
 .temperature-chart {
@@ -127,12 +139,12 @@ html, body, .grid-container {
   //height: 21rem;
   padding: 5px;
   font-size: 1.2rem;
-  border: 1px dotted;
+  //border: 1px dotted;
 }
 
 .forecast__day1, .forecast__day2, .forecast__day3, .forecast__day4,
 .forecast__day5, .forecast__day6, .forecast__day7 {
-  background: #181a1d;
+  //background: #181a1d;
 }
 
 .forecast__day1 {
@@ -951,7 +963,7 @@ html, body, .grid-container {
   // justify-content: center;
   // align-items: center;
   //color: #aaaaaa;
-  border: 1px dotted;
+  //border: 1px dotted;
   padding: 5px;
   text-align: center;
   font-size: small;

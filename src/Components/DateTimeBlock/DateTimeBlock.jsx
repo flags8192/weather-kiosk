@@ -1,4 +1,6 @@
+import clsx from "clsx";
 import React, { useEffect, useState, } from 'react'
+import { capitalizeFirstLetter } from "../../utils";
 
 import s from './DateTime.module.css'
 
@@ -8,11 +10,9 @@ const DateTimeBlock = () => {
   const [weekday, setWeekday] = useState('')
 
   const tick = () => {
-    const dayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
-    const monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
     setDate(new Date())
-    setDay(`${new Date().getDate()} ${monthNames[new Date().getMonth()]}`)
-    setWeekday(dayNames[new Date().getDay()])
+    setDay(date.toLocaleString('ru', {day: '2-digit', month: 'long'}))
+    setWeekday(capitalizeFirstLetter(date.toLocaleString('ru', {weekday: 'long'})))
   }
 
   useEffect(() => {
@@ -22,7 +22,8 @@ const DateTimeBlock = () => {
 
   return (
     <>
-      <div className={s.date_time}>
+      {/*<div className={s.date_time}>*/}
+      <div className={clsx(s.date_time, "card")}>
         <div className={s.date_time__time}>
           {date.toLocaleTimeString()}
         </div>

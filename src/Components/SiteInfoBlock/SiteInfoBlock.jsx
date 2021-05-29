@@ -7,7 +7,7 @@ const SiteInfoBlock = (props) => {
 
   return (
     <>
-      <div className="site-info">
+      <div className="site-info card">
         <span>
           &copy; Copyright 2010 -
           {new Date().getFullYear()}

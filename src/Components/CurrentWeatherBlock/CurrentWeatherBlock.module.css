@@ -8,10 +8,10 @@
     "current-weather__description current-weather__description current-weather-feels-like__temperature current-weather-feels-like__temperature"
     "weather_of-the-day weather_of-the-day weather_of-the-day weather_of-the-day";
   grid-area: current-weather;
-  border: 1px dotted;
-  padding: 1rem 0 0;
+  /*border: 1px dotted;*/
+  /*padding: 1rem 0 0;*/
   align-items: center;
-  background: #181a1d;
+  /*background: #181a1d;*/
 }
 
 .weather_of_the_day {
@@ -27,7 +27,7 @@
   /*border: 1px dotted;*/
   /*padding: 1rem 0 0;*/
   align-items: center;
-  background: #181a1d;
+  /*background: #181a1d;*/
 }
 
 .current_weather img {
@@ -40,7 +40,7 @@
 
 .current_weather__temperature {
   grid-area: current-weather__temperature;
-  font-size: 7.5rem;
+  font-size: 6rem;
   font-weight: bold;
 }
 

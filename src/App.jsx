@@ -58,7 +58,7 @@ function App() {
           <CurrentDescriptionBlock param={param} />
           <CurrentOtherBlock param={param} />
           <ForecastBlock />
-          <SiteInfoBlock data={myState.weather.fetchDataTime} param={param} />
+          {param === 'local' ? '' : <SiteInfoBlock data={myState.weather.fetchDataTime} param={param} />}
         </div>
       ) : (
         <LoadingIndicator />

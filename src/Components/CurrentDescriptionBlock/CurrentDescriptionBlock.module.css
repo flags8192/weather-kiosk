@@ -7,12 +7,12 @@
     "current-description";
   grid-area: current-description;
   align-self: stretch;
-  padding: 1rem 0 1rem 0;
+  /*padding: 1rem 0 1rem 0;*/
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px dotted;
-  background: #181a1d;
+  /*border: 1px dotted;*/
+  /*background: #181a1d;*/
 }
 
 .sunchart_wrapper {

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import Icon from '../../icons'
@@ -32,7 +33,8 @@ const CurrentWeatherBlock = (props) => {
 
   return (
     <>
-      <div className={s.current_weather}>
+      {/*<div className={s.current_weather}>*/}
+      <div className={clsx(s.current_weather, "card")}>
         <div className={s.current_weather__icon}>
           <Icon name={data.current.weather[0].icon} />
         </div>

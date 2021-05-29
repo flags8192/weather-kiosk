@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from 'react'
 import { useSelector } from 'react-redux'
 import {
@@ -24,7 +25,8 @@ const CurrentDescriptionBlock = () => {
 
   return (
     <>
-      <div className={s.current_description}>
+      {/*<div className={s.current_description}>*/}
+      <div className={clsx(s.current_description, "card")}>
         <div className={s.circles}>
           <div className={s.circles_wrapper}>
             <Gauge

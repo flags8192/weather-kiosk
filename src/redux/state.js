@@ -5,7 +5,7 @@ export const state = {
     isWeatherLoaded: false,
     otherTemp: {
       home: 22,
-      outdoor: 1,
+      outdoor: 15,
       heating: 22,
       basement: 16,
     },
@@ -605,7 +605,7 @@ export const state = {
       {
         dt: 1603162800,
         temp: 2.38,
-        feels_like: -4.03,
+        feels_like: +15.03,
         pressure: 1017,
         humidity: 87,
         dew_point: 0.55,

@@ -7,6 +7,16 @@ import directionUp from '@iconify/icons-wi/direction-up'
 import directionUpLeft from '@iconify/icons-wi/direction-up-left'
 import directionUpRight from '@iconify/icons-wi/direction-up-right'
 
+/**
+ * Возвращает строку с первой заглавной буквой
+ *
+ * @param {string} string - строка
+ * @returns {string}
+ */
+export const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 export const tempFormat = (temp) => {
   if (temp > 0) {
     return `+${temp}${'°'.replace(/[\n\r]+/g, '')}`

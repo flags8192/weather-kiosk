@@ -34,7 +34,7 @@ const ForecastBlock = () => {
             rain,
             snow,
           }, index) => (
-            <div key={dt} className={`forecast__day forecast__day${index + 1}`}>
+            <div key={dt} className={`forecast__day forecast__day${index + 1} card`}>
               <div
                 className={timestampToDate(dt, true) ? `forecast__day${index + 1}__date red` : `forecast__day${index + 1}__date white`}
               >
@@ -107,7 +107,7 @@ const ForecastBlock = () => {
             rain,
             snow,
           }, index) => (
-            <div key={dt} className={`forecast__day forecast__day${index + 2}`}>
+            <div key={dt} className={`forecast__day forecast__day${index + 2} card`}>
               <div
                 className={timestampToDate(dt, true) ? `forecast__day${index + 2}__date red` : `forecast__day${index + 2}__date white`}
               >
